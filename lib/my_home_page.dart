@@ -1,4 +1,5 @@
 import 'package:dbestech_riverpod/data_provider.dart';
+import 'package:dbestech_riverpod/main.dart';
 import 'package:dbestech_riverpod/models/user_model.dart';
 import 'package:dbestech_riverpod/screens/detail_screen.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,30 @@ class MyHomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final data = ref.watch(userDataProvider);
+    var value = ref.watch(counterStateProvider);
     return Scaffold(
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.only(
+            left: 30,
+          ),
+          child: Row(children: [
+            FloatingActionButton(
+              onPressed: () => ref.read(counterStateProvider.state).state++,
+              child: const Icon(
+                Icons.add,
+              ),
+            ),
+            Expanded(
+              child: Container(),
+            ),
+            FloatingActionButton(
+              onPressed: () => ref.read(counterStateProvider.state).state--,
+              child: const Icon(
+                Icons.remove,
+              ),
+            ),
+          ]),
+        ),
         appBar: AppBar(
           title: const Text('Riverpod'),
         ),
@@ -23,6 +47,7 @@ class MyHomePage extends ConsumerWidget {
               ),
               child: Column(
                 children: [
+                  Text('Value = $value'),
                   Expanded(
                       child: ListView.builder(
                           itemCount: userList.length,
