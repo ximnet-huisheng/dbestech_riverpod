@@ -1,5 +1,7 @@
 // from https://www.youtube.com/watch?v=2EV5w73QbF4
 
+//1. add ProviderScope at main()
+
 import 'package:dbestech_riverpod/my_home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

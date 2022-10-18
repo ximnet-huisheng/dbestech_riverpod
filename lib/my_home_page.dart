@@ -1,5 +1,6 @@
 import 'package:dbestech_riverpod/data_provider.dart';
 import 'package:dbestech_riverpod/models/user_model.dart';
+import 'package:dbestech_riverpod/screens/detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -26,24 +27,33 @@ class MyHomePage extends ConsumerWidget {
                       child: ListView.builder(
                           itemCount: userList.length,
                           itemBuilder: (_, index) {
-                            return Card(
-                              color: Colors.blue,
-                              elevation: 4,
-                              margin: const EdgeInsets.symmetric(
-                                vertical: 10,
+                            return InkWell(
+                              onTap: () => Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => DetailScreen(
+                                    e: userList[index],
+                                  ),
+                                ),
                               ),
-                              child: ListTile(
-                                title: Text(
-                                  userList[index].firstName,
-                                  style: const TextStyle(color: Colors.white),
+                              child: Card(
+                                color: Colors.blue,
+                                elevation: 4,
+                                margin: const EdgeInsets.symmetric(
+                                  vertical: 10,
                                 ),
-                                subtitle: Text(
-                                  userList[index].lastName,
-                                  style: const TextStyle(color: Colors.white),
-                                ),
-                                trailing: CircleAvatar(
-                                  backgroundImage:
-                                      NetworkImage(userList[index].avatar),
+                                child: ListTile(
+                                  title: Text(
+                                    userList[index].firstName,
+                                    style: const TextStyle(color: Colors.white),
+                                  ),
+                                  subtitle: Text(
+                                    userList[index].lastName,
+                                    style: const TextStyle(color: Colors.white),
+                                  ),
+                                  trailing: CircleAvatar(
+                                    backgroundImage:
+                                        NetworkImage(userList[index].avatar),
+                                  ),
                                 ),
                               ),
                             );
