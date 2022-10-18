@@ -2,16 +2,12 @@
 
 Flutter Riverpod Http Get Request Example | Fetch API State Management
 
-## Getting Started
+from
+https://www.youtube.com/watch?v=2EV5w73QbF4
+https://www.youtube.com/watch?v=U_9yhp0aSaQ
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-"# dbestech_riverpod" 
+1. add ProviderScope at main()
+2. create Provider / StateProvider
+3. add widget that extend ConsumerWidget
+4. read the value
+5. use ref.read to change the state
