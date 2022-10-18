@@ -8,14 +8,14 @@ class MyHomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    final _data = ref.watch(userDataProvider);
+    final data = ref.watch(userDataProvider);
     return Scaffold(
         appBar: AppBar(
           title: const Text('Riverpod'),
         ),
-        body: _data.when(
-          data: ((_data) {
-            List<UserModel> userList = _data.map((e) => e).toList();
+        body: data.when(
+          data: ((data) {
+            List<UserModel> userList = data.map((e) => e).toList();
             return Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 10.0,
